@@ -1,6 +1,8 @@
 package com.sunnyWeather.android.logic
 
 import androidx.lifecycle.liveData
+import com.sunnyWeather.android.logic.dao.PlaceDao
+import com.sunnyWeather.android.logic.model.Place
 import com.sunnyWeather.android.logic.network.SunnyWeatherNetwork
 import com.sunnyWeather.android.logic.model.Weather
 
@@ -55,5 +57,7 @@ object Repository {
             }
             emit(result)
         }
-
+    fun savePlace(place: Place)= PlaceDao.savePlace(place)
+    fun getSavedPlace()=PlaceDao.getSavedPlace()
+    fun isPlaceSaved()=PlaceDao.isPlaceSaved()
 }

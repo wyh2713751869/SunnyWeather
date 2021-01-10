@@ -33,10 +33,12 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
         viewHolder.itemView.setOnClickListener(v -> {
             int adapterPosition = viewHolder.getAdapterPosition();
             Place place = placeList.get(adapterPosition);
+
             Intent intent = new Intent(parent.getContext(), WeatherActivity.class);
             intent.putExtra("location_lng",place.getLocation().getLng());
             intent.putExtra("location_lat",place.getLocation().getLat());
             intent.putExtra("place_name",place.getName());
+
             fragment.startActivity(intent);
         });
         return viewHolder;
